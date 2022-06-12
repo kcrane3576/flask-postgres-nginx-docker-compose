@@ -19,5 +19,8 @@ MVP repo to have default config to run flask, postgres, and nginx running and ne
 ### Cleanup System
 `docker system prune`
 
-### Reference
+### Check Error Logs
+`docker-compose logs -f`
+
+## Reference
 - From: [blog](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/)

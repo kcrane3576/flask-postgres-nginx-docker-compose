@@ -10,3 +10,14 @@ services:
       - 8000:5000
     env_file:
       - ./.env.dev
+  db:
+    image: postgres:13-alpine
+    # Enables the persistence of the data in postgres
+    # Local machine has a volume where the postgresql container writes to ...?
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.dev
+
+volumes:
+  postgres_data:  

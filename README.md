@@ -1,5 +1,6 @@
 # flask-postgres-nginx-docker-compose
 MVP repo to have default config to run flask, postgres, and nginx running and networked with docker-compose
+- [Guide](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/)
 
 ## ✨ What do you want to do? ✨
 ### ✨ Awareness ✨
@@ -26,7 +27,7 @@ You will need ot make sure you update any values surrounded by `<` and `>`
 
 ## DB
 ### Validate Setup
-TODO
+
 
 ## Docker
 ### ✨ AWARENESS:✨  
@@ -43,6 +44,21 @@ docker run -p 5001:5000 \
 ### Dev Docker Flask and Postgress
 ```shell
 docker-compose up --build
+
+# validate database is setup and configured
+docker-compose exec db psql --username=$POSTGRES_USER --dbname=$POSTGRES_PASSWORD
+
+# verify create_db worked
+test_flask_dev=# \l
+
+# ^ Response
+# Should show list of databases and there should be a test_flask_dev database
+```
+
+Optional Setup
+```shell
+# can create and add user to database
+docker-compose exec web python manage.py seed_db
 ```
 
 
@@ -64,6 +80,9 @@ docker system prune
 
 ### Docker Helpful Commands
 ```shell 
+# get docker logs
+docker compose logs -f 
+
 # Connect to Postgresql in Docker Container
 `docker-compose exec db psql --username=<POSTGRES_USER> --dbname=<POSTGRES_DB>`
 
@@ -73,8 +92,5 @@ docker system prune
 # Inspect Volume (Use output from above command to populate <volument-reference>)
 `docker volume inspect <volume-reference>`
 ```
-
-## Reference
-- From: [Guide](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/)
 
 

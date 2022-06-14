@@ -2,6 +2,7 @@
 MVP repo to have default config to run flask, postgres, and nginx running and networked with docker-compose
 - [Guide](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/)
 
+
 ## ✨ What do you want to do? ✨
 ### ✨ Awareness ✨
 [Docker](#docker) section includes sections for building, running, inspecting, and debugging docker
@@ -13,6 +14,7 @@ MVP repo to have default config to run flask, postgres, and nginx running and ne
     - [Dev Environment Setup](#dev-environment)
     - [Dev Docker Flask And Postgress](#dev-docker-flask-and-postgress)
 
+
 ## ✨ Environment Setup ✨
 ### ✨ WARNING:✨  
 You will need ot make sure you update any values surrounded by `<` and `>`
@@ -21,12 +23,20 @@ You will need ot make sure you update any values surrounded by `<` and `>`
 ### Dev Environment
 - Create `.env.dev` file in root of project based on `.env.dev-sample`
 
-### Prod
-- TBD
+### Prod Environment
+- - Create `.env.prod` file in root of project based on `.env.prod-sample`
 
 
 ## DB
 ### Validate Setup
+- Log into the postgres container
+- Verify the database was created
+```shell
+# for this project POSTGRES_DB will be either test_flask_dev or test_flask_prod
+`docker-compose exec db psql --username=<POSTGRES_USER> --dbname=<POSTGRES_DB>`
+# verify database setup
+\l
+```
 
 
 ## Docker
@@ -61,7 +71,6 @@ Optional Setup
 docker-compose exec web python manage.py seed_db
 ```
 
-
 ### Docker Cleanup
 ```shell
 # containers
@@ -76,7 +85,6 @@ docker-compose down -v
 # system 
 docker system prune
 ```
-
 
 ### Docker Helpful Commands
 ```shell 

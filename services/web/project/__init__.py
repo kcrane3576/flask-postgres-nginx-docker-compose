@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 
-
 app = Flask(__name__)
 # Configure app to load config from config.py Config
 app.config.from_object("project.config.Config")

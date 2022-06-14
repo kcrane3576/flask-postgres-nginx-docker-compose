@@ -13,11 +13,12 @@ docker build -f ./services/web/Dockerfile -t flas-postgress-nginx:latest ./servi
 docker run -p 5001:5000 \
     -e "FLASK_APP=project/__init__.py" \
     -e "FLASK_ENV=development" \
+    -h 0.0.0.0 \
     flas-postgress-nginx \
     python \
     /usr/src/app/manage.py \
-    run \
-    -h 0.0.0.0
+    run
+    
 ```
 ```shell
 # container logs

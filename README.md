@@ -18,7 +18,8 @@ docker run -p 5001:5000 \
     /usr/src/app/manage.py \
     run \
     -h 0.0.0.0
-
+```
+```shell
 # container logs
 docker-compose logs -f
 
@@ -37,7 +38,7 @@ docker-compose up --build -d
 # container logs
 docker-compose logs -fdocker-compose -f docker-compose.prod.yml logs -f
 ```
-***
+
 ```shell
 # login and verify database
 docker-compose exec db psql --username=$POSTGRES_USER --dbname=$POSTGRES_PASSWORD
@@ -48,13 +49,12 @@ docker-compose exec web python manage.py seed_db
 docker-compose exec db psql --username=$POSTGRES_USER --dbname=$POSTGRES_PASSWORD
 test_flask_dev=# \dt
 ```
-***
-```
+
+```shell
 # clean
 docker-compose down -v
 docker system prune -af
 ```
-
 
 
 ***
@@ -68,7 +68,7 @@ docker-compose -f docker-compose.prod.yml up -d --build
 # setup database
 docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
 ```
-***
+
 ```shell
 # logs
 docker-compose -f docker-compose.prod.yml logs -f

@@ -1,4 +1,1 @@
-FROM nginx:1.19-alpine
-
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
+RlJPTSBuZ2lueDoxLjE5LWFscGluZUBzaGEyNTY6MDdhYjcxYTJjOGU0ZWNiMTlhNWE1YWJjZmIzYTRmMTc1OTQ2YzAwMWM4YWYyODhiMWFhNzY2ZDY3YjBkMDVkMgoKUlVOIHJtIC9ldGMvbmdpbngvY29uZi5kL2RlZmF1bHQuY29uZgpDT1BZIG5naW54LmNvbmYgL2V0Yy9uZ2lueC9jb25mLmQ=
